@@ -7,7 +7,7 @@
 #include <vector>
 #include <map>
 #include <limits>
-#include <GL\glut.h>
+#include <GL/glut.h>
 #include "Piece.h"
 
 #include <stdlib.h>
@@ -60,7 +60,7 @@ public:
 	vector<Piece> getStockSheet();
 	void setStockSheet(vector<Piece> ss);
 
-	GLdouble *Layout::generateRandomPosition(int p);
+	GLdouble *generateRandomPosition(int p);
 	int chooseRandomPiece();
 
 	void addPiecePlacement(int piece, GLfloat *position);
@@ -70,5 +70,5 @@ public:
 
 	double getMaxWidth();
 	double getMaxHeight();
-	BoundingBox Layout::stockSheetsBoundingBox();
+	BoundingBox stockSheetsBoundingBox();
 };

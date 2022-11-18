@@ -1,7 +1,7 @@
 #pragma once
-#include <GL\glut.h>
-#include <opencv\cv.h>
-#include <opencv\highgui.h>
+#include <GL/glut.h>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
 #include <vector>
 #include <unordered_set>
 #include "Problem.h"
@@ -10,7 +10,8 @@
 
 #include <CGAL/ch_graham_andrew.h>
 
-#include <CGAL/minkowski_sum_2.h>
+// TODO comment this in
+// #include <CGAL/minkowski_sum_2.h>
 
 #include <CGAL/Small_side_angle_bisector_decomposition_2.h>
 #include <CGAL/Polygon_convex_decomposition_2.h>

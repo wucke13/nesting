@@ -20,6 +20,10 @@ extern int handle;
 extern int stockList;
 extern GLfloat *blue;
 
+#ifndef CALLBACK
+#define CALLBACK
+#endif
+
 // CALLBACK functions for GLU_TESS ////////////////////////////////////////////
 // NOTE: must be declared with CALLBACK directive
 void CALLBACK tessBeginCB(GLenum which);

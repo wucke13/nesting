@@ -226,7 +226,7 @@ void displayCB()
 	glMatrixMode(GL_MODELVIEW);																	// switch to modelview matrix
 
 	glColor3f(1.0, 1.0, 0.0);
-	for(int i=0; i < currentDrawingPolys.getPositions().size(); i++)
+	for(size_t i=0; i < currentDrawingPolys.getPositions().size(); i++)
 	{
 		glPushMatrix();
 		//glColor4f(currentDrawingPolys[i].getColors()[i][0], currentDrawingPolys[i].getColors()[i][1], currentDrawingPolys[i].getColors()[i][2], currentDrawingPolys[i].getColors()[i][3]);

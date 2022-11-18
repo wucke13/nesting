@@ -92,7 +92,7 @@ vector<Polygon_2> generateDecomposedPieceDiscreteRotation(vector<Polygon_2> p, d
 
 	vector<Polygon_2> rotatedP;
 	Point_2 bottomLeftCorner(numeric_limits<double>::infinity(), numeric_limits<double>::infinity());
-	for(int i = 0; i < rotatedP.size(); i++)
+	for(size_t i = 0; i < rotatedP.size(); i++)
 	{
 		//rodar outer boundary
 		Polygon_2 rotatedPOuterBoundary;
@@ -110,7 +110,7 @@ vector<Polygon_2> generateDecomposedPieceDiscreteRotation(vector<Polygon_2> p, d
 
 	Vector_2 lowLeft(-bottomLeftCorner.x(), -bottomLeftCorner.y());
 	Transformation normalizeToOrigin(CGAL::TRANSLATION, lowLeft);
-	for(int i = 0; i < rotatedP.size(); i++)
+	for(size_t i = 0; i < rotatedP.size(); i++)
 	{
 		for (Polygon_2::Vertex_iterator vit = rotatedP[i].vertices_begin(); vit !=rotatedP[i].vertices_end(); ++vit)
 		{
@@ -124,10 +124,10 @@ vector<Polygon_2> generateDecomposedPieceDiscreteRotation(vector<Polygon_2> p, d
 Piece invertPiece(Piece p)
 {
 	Piece pInv;
-	for(int i=0; i < p.getComponents().size(); i++)
+	for(size_t i=0; i < p.getComponents().size(); i++)
 	{
 		Component c;
-		for(int j=0; j < p.getComponents()[i].size(); j++)
+		for(size_t j=0; j < p.getComponents()[i].size(); j++)
 		{
 			c.push_back(createPosition(-p.getComponents()[i][j][0], -p.getComponents()[i][j][1], -p.getComponents()[i][j][2]));
 		}

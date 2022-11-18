@@ -1,5 +1,8 @@
 #include "OpenglCallbacks.h"
 
+#ifndef WIN32
+#define __stdcall
+#endif
 
 void reshapeCB(int w, int h)
 {
@@ -218,7 +221,7 @@ int generatePolygonDisplayList(vector<Polygon_2> p){
     if(!id) return id;          // failed to create a list, return 0
 	
 	glNewList(id, GL_COMPILE);
-	for (int i=0; i < p.size(); i++)
+	for (size_t i=0; i < p.size(); i++)
 	{
 		glBegin(GL_POLYGON);
 		for (Polygon_2::Vertex_iterator hit = p[i].vertices_begin(); hit != p[i].vertices_end(); ++hit)

@@ -52,9 +52,9 @@ BoundingBox Piece::getBoundingBox()
 	
 	
 	//escolhe os pontos dos cantos inferior esquerdo e superior direito
-	for(int i=0; i < components.size(); i++)
+	for(size_t i=0; i < components.size(); i++)
 	{
-		for(int j=0; j < components[i].size(); j++)
+		for(size_t j=0; j < components[i].size(); j++)
 		{
 			//cout<<"component "<<i<<" "<<components[i][j][0]<<" "<<components[i][j][1]<<endl;
 			if(components[i][j][0]<minXY[0]) minXY[0]=components[i][j][0];
@@ -71,9 +71,9 @@ BoundingBox Piece::getBoundingBox()
 
 void Piece::normalize(GLdouble point[3]){
 	//cout<<"Normalize to point "<<point[0]<<" "<<point[1]<<" "<<point[2]<<endl;
-	for(int i=0; i <components.size(); i++)
+	for(size_t i=0; i <components.size(); i++)
 	{ 
-		for(int j=0; j < components[i].size(); j++)
+		for(size_t j=0; j < components[i].size(); j++)
 		{
 			components[i][j][0]-=point[0];
 			components[i][j][1]-=point[1];
@@ -100,10 +100,10 @@ Piece Piece::clone()
 {
 	Piece p;
 
-	for(int i=0; i <components.size(); i++)
+	for(size_t i=0; i <components.size(); i++)
 	{
 		Component c;
-		for(int j=0; j < components[i].size(); j++)
+		for(size_t j=0; j < components[i].size(); j++)
 		{
 			GLdouble *vertex = new GLdouble[3];
 			memcpy (vertex, components[i][j], 3*sizeof(GLdouble) );
@@ -116,18 +116,18 @@ Piece Piece::clone()
 }
 */
 void Piece::print(){/*
-	for(int i=0; i <components.size(); i++){
+	for(size_t i=0; i <components.size(); i++){
 			cout<<"   Component"<<endl;
-			for(int j=0; j < components[i].size(); j++)
+			for(size_t j=0; j < components[i].size(); j++)
 				cout<<"      "<<components[i][j][0]<<' '<<components[i][j][1]<<' '<<components[i][j][2]<<endl;
 		}*/
 	cout<<*this;
 }
 
 ostream &operator<<(ostream &c, Piece p){
-	for(int i=0; i <p.components.size(); i++){
+	for(size_t i=0; i <p.components.size(); i++){
 			c<<"   Component"<<endl;
-			for(int j=0; j < p.components[i].size(); j++)
+			for(size_t j=0; j < p.components[i].size(); j++)
 				c<<"      "<<p.components[i][j][0]<<' '<<p.components[i][j][1]<<' '<<p.components[i][j][2]<<endl;
 		}
 	return c;

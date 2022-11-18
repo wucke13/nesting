@@ -5,6 +5,7 @@
 
 #include <iomanip>
 
+#define BOOST_BIND_GLOBAL_PLACEHOLDERS
 #include <boost/shared_ptr.hpp>
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/Polygon_2.h>

@@ -4,3 +4,6 @@
 *.csv
 *.xlsx
 *.jpg
+.direnv/
+.cache/
+result

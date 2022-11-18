@@ -260,15 +260,17 @@ vector<vector<cv::Point>> showContours(IplImage *thrImg)
 	thrImgMat.copyTo(roi);
 
 	//desenhar contornos invertidos
-	cvThreshold(thrImg, &(IplImage)invCntrImgMat, 0, 255, CV_THRESH_BINARY_INV);
-	pair<vector<vector<cv::Point>>, vector<cv::Vec4i>> contoursPair = getContours(&(IplImage)invCntrImgMat, 1.0);
+	IplImage invCntrImgMatIpl = invCntrImgMat;
+	cvThreshold(thrImg, &invCntrImgMatIpl, 0, 255, CV_THRESH_BINARY_INV);
+	pair<vector<vector<cv::Point>>, vector<cv::Vec4i>> contoursPair = getContours(&invCntrImgMatIpl, 1.0);
 	contours = contoursPair.first;
 	cv::drawContours(invCntrImgMat, contours, -1, cv::Scalar(255));
 	roi = cv::Mat(displayImgMat, cv::Rect(cv::Point(0, invCntrImgMat.rows/*2*/), invCntrImgMat.size()));
 	invCntrImgMat.copyTo(roi);
 
 	//mostrar imagem
-	cvConvertImage(&(IplImage)displayImgMat,  &(IplImage)displayImgMat, CV_CVTIMG_FLIP);
+	IplImage displayImgMatIpl = displayImgMat;
+	cvConvertImage(&displayImgMatIpl,  &displayImgMatIpl, CV_CVTIMG_FLIP);
 #ifdef DEBUG
 	cvShowImage(windowName, &(IplImage)displayImgMat);
 #endif
